@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Users</title>
+  <style>table th, table td {padding: 10px;}</style>
+</head>
+<body>
+<div>
+  <table border="1">
+    <tr>
+      <th>Марка</th>
+      <th>Модель</th>
+      <th>Номер</th>
+    </tr>
+    <tr th:each="msg : ${messages}">
+      <td th:utext="${msg.getCarBrand}">...</td>
+      <td th:utext="${msg.getCarModel}">...</td>
+      <td th:utext="${msg.getCarNumber}">...</td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>
