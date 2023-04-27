@@ -5,7 +5,9 @@ import web.model.User;
 import java.util.List;
 
 public interface UserDao {
-    void addCarInList(User user);
+    void saveUser(String name, String lastName, String email);
+    List<User> getAllUsers();
+    void removeUser(long id);
+    void editUser(long id);
 
-    List<User> getCarFromListByCount(int count);
 }

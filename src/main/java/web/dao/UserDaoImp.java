@@ -2,23 +2,31 @@ package web.dao;
 
 import org.springframework.stereotype.Repository;
 import web.model.User;
-import java.util.ArrayList;
+
+import javax.persistence.EntityManager;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Repository
 public class UserDaoImp implements UserDao {
 
-    private final List<User> listUser = new ArrayList<>();
-
+    private EntityManager entityManager;
     @Override
-    public void addCarInList(User user) {
-        listUser.add(user);
+    public void saveUser(String name, String lastName, String email) {
+
     }
 
     @Override
-    public List<User> getCarFromListByCount(int count) {
-        if (count >= 5) return listUser;
-        return listUser.stream().limit(count).collect(Collectors.toList());
+    public List<User> getAllUsers() {
+        return null;
+    }
+
+    @Override
+    public void removeUser(long id) {
+
+    }
+
+    @Override
+    public void editUser(long id) {
+
     }
 }

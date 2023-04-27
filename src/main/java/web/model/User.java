@@ -1,38 +1,60 @@
 package web.model;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 @Entity
+@Table(name = "users")
 public class User {
-    private String carBrand;
-    private String carModel;
-    private String carNumber;
+
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column
+    @NotEmpty(message = "Укажите имя")
+    @Size(min = 2, max = 15)
+    private String name;
+
+    @Column
+    @NotEmpty(message = "Укажите фамилию")
+    @Size(min = 2, max = 15)
+    private String lastName;
+
+    @Column
+    @NotEmpty(message = "Укажите почту")
+    @Email(message = "Не верный формат почты")
+    private String email;
 
     public User() {
     }
 
-    public String getCarBrand() {
-        return carBrand;
+
+    public String getName() {
+        return name;
     }
 
-    public void setCarBrand(String carBrand) {
-        this.carBrand = carBrand;
+    public void setName(String carBrand) {
+        this.name = carBrand;
     }
 
-    public String getCarModel() {
-        return carModel;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setCarModel(String carModel) {
-        this.carModel = carModel;
+    public void setLastName(String carModel) {
+        this.lastName = carModel;
     }
 
-    public String getCarNumber() {
-        return carNumber;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCarNumber(String carNumber) {
-        this.carNumber = carNumber;
+    public void setEmail(String carNumber) {
+        this.email = carNumber;
     }
 
 }
